@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page d'édition de l'emploi du temps</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Édition de l'emploi du temps</h1>
+
+    <form id="emploi-form">
+      <div class="form-group">
+        <label for="matiere">Matière:</label>
+        <input type="text" class="form-control" id="matiere" placeholder="Entrez le nom de la matière">
+      </div>
+      <div class="form-group">
+        <label for="professeur">Nom du professeur:</label>
+        <input type="text" class="form-control" id="professeur" placeholder="Entrez le nom du professeur">
+      </div>
+      <div class="form-group">
+        <label for="heure">Heure de cours totale:</label>
+        <input type="number" class="form-control" id="heure" placeholder="Entrez le nombre d'heures">
+      </div>
+      <div class="form-group">
+        <label for="jour">Jour:</label>
+        <select class="form-control" id="jour">
+          <option>Lundi</option>
+          <option>Mardi</option>
+          <option>Mercredi</option>
+          <option>Jeudi</option>
+          <option>Vendredi</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th>Matière</th>
+          <th>Professeur</th>
+          <th>Heure totale</th>
+          <th>Heure restante</th>
+          <th>Jour</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mathématiques</td>
+          <td>Professeur 1</td>
+          <td>20</td>
+          <td>20</td>
+          <td>Lundi</td>
+          <td><button class="btn btn-sm btn-primary edit-btn">Modifier</button></td>
+        </tr>
+        <tr>
+          <td>Français</td>
+          <td>Professeur 2</td>
+          <td>15</td>
+          <td>15</td>
+          <td>Mardi</td>
+          <td><button class="btn btn-sm btn-primary edit-btn">Modifier</button></td>
+        </tr>
+        <tr>
+          <td>Histoire</td>
+          <td>Professeur 3</td>
+          <td>18</td>
+          <td>18</td>
+          <td>Mercredi</td>
+          <td><button class="btn btn-sm btn-primary edit-btn">Modifier</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('.edit-btn').click(function() {
+        var row = $(this).closest('tr');
+        var matiere = row.find('td:eq(0)').text();
+        var professeur = row.find('td:eq(1)').text();
+        var heureTotale = parseInt(row.find('td:eq(2)').text());
+        var heureRestante = parseInt(row.find('td:eq(3)').text());
+        var jour = row.find('td:eq(4)').text();
+
+        $('#matiere').val(matiere);
+        $('#professeur').val(professeur);
+        $('#heure').val(heureTotale);
+        $('#jour').val(jour);
+
+        // Empêcher l'édition si toutes les heures sont utilisées
+        if (heureRestante === 0) {
+          $('#heure').prop('disabled', true);
+          $('#jour').prop('disabled', true);
+          $('.btn-primary').prop('disabled', true);
+        } else {
+          $('#heure').prop('disabled', false);
+          $('#jour').prop('disabled', false);
+          $('.btn-primary').prop('disabled', false);
+        }
+      });
+
+      $('#emploi-form').submit(function(event) {
+        event.preventDefault();
+
+        var matiere = $('#matiere').val();
+        var professeur = $('#professeur').val();
+        var heureTotale = parseInt($('#heure').val());
+        var jour = $('#jour').val();
+
+        // Calculer l'heure restante
+        var heureRestante = heureTotale;
+
+        // Vérifier si la matière existe déjà dans le tableau
+        var existingRow = $('table tbody').find('tr:contains(' + matiere + ')');
+        if (existingRow.length > 0) {
+          var existingHeureRestante = parseInt(existingRow.find('td:eq(3)').text());
+          heureRestante += existingHeureRestante;
+          existingRow.remove();
+        }
+
+        // Ajouter la nouvelle ligne dans le tableau
+        var newRow = '<tr><td>' + matiere + '</td><td>' + professeur + '</td><td>' + heureTotale + '</td><td>' + heureRestante + '</td><td>' + jour + '</td><td><button class="btn btn-sm btn-primary edit-btn">Modifier</button></td></tr>';
+        $('table tbody').append(newRow);
+
+        // Réinitialiser le formulaire
+        $('#emploi-form')[0].reset();
+      });
+
+      // Décrémenter l'heure restante lorsque le formulaire est soumis
+      $('form').submit(function(event) {
+        event.preventDefault();
+        var heure = parseInt($('#heure').val());
+        var selectedRow = $('table tbody').find('tr:contains(' + $('#matiere').val() + ')');
+        var heureRestante = parseInt(selectedRow.find('td:eq(3)').text());
+        var nouvelleHeureRestante = heureRestante - heure;
+        selectedRow.find('td:eq(3)').text(nouvelleHeureRestante);
+      });
+    });
+  </script>
+</body>
+</html>
