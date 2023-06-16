@@ -1,0 +1,41 @@
+Table "utilisateurs" :
+
+Description : Cette table stocke les informations sur les utilisateurs de l'application, qu'ils soient des étudiants ou membres de l'administration.
+Colonnes : id (identifiant unique), nom, prénom, email, mot_de_passe, rôle.
+Relation : Aucune relation avec d'autres tables.
+Table "promotions" :
+
+Description : Cette table stocke les informations sur les différentes promotions.
+Colonnes : id (identifiant unique), nom.
+Relation : Aucune relation avec d'autres tables.
+Table "filieres" :
+
+Description : Cette table stocke les informations sur les différentes filières.
+Colonnes : id (identifiant unique), nom.
+Relation : Aucune relation avec d'autres tables.
+Table "groupes" :
+
+Description : Cette table stocke les informations sur les différents groupes d'étudiants.
+Colonnes : id (identifiant unique), nom, id_promotion (clé étrangère vers la table "promotions"), id_filiere (clé étrangère vers la table "filieres").
+Relations : Un groupe appartient à une promotion et à une filière.
+Table "enseignements" :
+
+Description : Cette table stocke les informations sur les enseignements proposés dans chaque filière.
+Colonnes : id (identifiant unique), nom, id_filiere (clé étrangère vers la table "filieres").
+Relation : Un enseignement appartient à une filière.
+Table "salles" :
+
+Description : Cette table stocke les informations sur les salles de cours.
+Colonnes : id (identifiant unique), nom.
+Relation : Aucune relation avec d'autres tables.
+Table "cours" :
+
+Description : Cette table stocke les informations sur les cours planifiés.
+Colonnes : id (identifiant unique), id_enseignement (clé étrangère vers la table "enseignements"), id_groupe (clé étrangère vers la table "groupes"), id_enseignant (clé étrangère vers la table "utilisateurs"), id_salle (clé étrangère vers la table "salles"), jour_semaine, heure_debut, heure_fin.
+Relations : Un cours est associé à un enseignement, à un groupe, à un enseignant et à une salle.
+Table "emploi_du_temps" :
+
+Description : Cette table stocke les informations sur les emplois du temps programmés.
+Colonnes : id (identifiant unique), id_promotion (clé étrangère vers la table "promotions"), id_groupe (clé étrangère vers la table "groupes"), id_cours (clé étrangère vers la table "cours"), date.
+Relations : Un emploi du temps est associé à une promotion, à un groupe et à un cours.
+Ces tables sont liées entre elles par des clés étrangères, ce qui permet d'établir des relations et d'assurer l'intégrité des données. Par exemple, un cours est lié à un groupe spécifique grâce à la clé étrangère "id_groupe". De cette manière, les informations peuvent être récupérées de manière cohérente et structurée à travers la base de données.
