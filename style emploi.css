@@ -1,0 +1,39 @@
+.tableau-style{
+    border-collapse: collapse;
+    min-width: 400px;
+    width: auto;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.15);
+    cursor: pointer;
+    margin: 100px auto;
+    border: 2px solid rgb(46, 46, 230);
+}
+thead tr{
+    background-color: rgb(46, 46, 230);
+    color: #fffffff8;
+    text-align: left;
+}
+th , td{
+    padding: 15px 20px;
+}
+tbody tr, td, th{
+    border: 1.7px solid #241212d3;
+}
+tbody tr:nth-child(event){
+    background-color: #f3f3f3;
+}
+body{
+    text-align: center;
+    color: rgb(11, 109, 11);
+}
+.option {
+    background-color: #d33013;
+    color: #f5f5f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    top: 50px;
+    left: 10px; 
+    text-decoration: none;
+  
+  }
