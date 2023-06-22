@@ -14,33 +14,35 @@ PROFESSEUR_CHOICES = (
     # Ajoutez d'autres choix ici
 )
 
-FILIERE_CHOICES = (
-    ('filiere1', 'Filière 1'),
-    ('filiere2', 'Filière 2'),
-    ('filiere3', 'Filière 3'),
+
+HEURES_CHOICES = (
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+
     # Ajoutez d'autres choix ici
+
 )
 
-LICENSE_CHOICES = (
-    ('licence1', 'Licence 1'),
-    ('licence2', 'Licence 2'),
-    ('licence3', 'Licence 3'),
+SALLES_CHOICES = (
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+
     # Ajoutez d'autres choix ici
+
 )
 
 
 class Emploi(models.Model):
-   # list = models.ForeignKey('EmploiList', null=False,on_delete=models.CASCADE, default=1)
     cours = models.CharField(
         max_length=50, choices=COURS_CHOICES, default='maths', null=False)
     professeur = models.CharField(
         max_length=50, choices=PROFESSEUR_CHOICES, default='prof1')
-    filiere = models.CharField(
-        max_length=50, choices=FILIERE_CHOICES, default='filiere1')
     quota_total = models.IntegerField(default=30)
-
-
-class EmploiList(models.Model):
-    license = models.CharField(
-        max_length=50, choices=LICENSE_CHOICES, default='licence1', null=False)
-    # autres champs de votre modèle
+    heure = models.IntegerField(choices=HEURES_CHOICES, default=3)
+    heure = models.IntegerField(choices=SALLES_CHOICES, default=3)
