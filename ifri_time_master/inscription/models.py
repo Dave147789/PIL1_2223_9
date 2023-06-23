@@ -1,4 +1,11 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+from django.utils.timezone import make_aware
+from datetime import datetime
+from datetime import date
+from babel.dates import format_time
+
 
 COURS_CHOICES = (
     ('maths', 'Mathématiques'),
@@ -8,33 +15,28 @@ COURS_CHOICES = (
 )
 
 PROFESSEUR_CHOICES = (
-    ('prof1', 'Professeur 1'),
-    ('prof2', 'Professeur 2'),
-    ('prof3', 'Professeur 3'),
+    ('Professeur 1', 'nom'),
+    ('Professeur 2', 'nom'),
+    ('Professeur 3', 'nom'),
     # Ajoutez d'autres choix ici
-)
-
-
-HEURES_CHOICES = (
-    (1, 1),
-    (2, 2),
-    (3, 3),
-    (4, 4),
-    (5, 5),
-
-    # Ajoutez d'autres choix ici
-
 )
 
 SALLES_CHOICES = (
-    (1, '1'),
-    (2, '2'),
-    (3, '3'),
-    (4, '4'),
-    (5, '5'),
-
+    ('IRAN1', 'IRAN1'),
+    ('IRAN2', 'IRAN2'),
+    ('FAKAMBI', 'FAKAMBI'),
     # Ajoutez d'autres choix ici
+)
 
+JOUR_CHOICES = (
+    ('lundi', 'Lundi'),
+    ('mardi', 'Mardi'),
+    ('mercredi', 'Mercredi'),
+    ('jeudi', 'Jeudi'),
+    ('vendredi', 'Vendredi'),
+    ('samedi', 'Samedi'),
+    ('dimanche', 'Dimanche'),
+    # Ajoutez d'autres choix ici
 )
 
 
@@ -44,5 +46,43 @@ class Emploi(models.Model):
     professeur = models.CharField(
         max_length=50, choices=PROFESSEUR_CHOICES, default='prof1')
     quota_total = models.IntegerField(default=30)
-    heure = models.IntegerField(choices=HEURES_CHOICES, default=3)
-    heure = models.IntegerField(choices=SALLES_CHOICES, default=3)
+    quota_restante = models.IntegerField(default=30)
+
+
+class NouveauEmploi(models.Model):
+    emploi = models.ForeignKey(Emploi, on_delete=models.CASCADE)
+    jour = models.CharField(max_length=10, choices=JOUR_CHOICES)
+    heure_debut = models.TimeField(verbose_name=_('Heure de début'))
+    heure_fin = models.TimeField(verbose_name=_('Heure de fin'))
+    duree_cours = models.IntegerField(default=0)
+    actif = models.BooleanField(default=False)
+    salle = models.CharField(choices=SALLES_CHOICES,max_length=50, default='IRAN1')
+
+
+    def save(self, *args, **kwargs):
+        self.emploi.quota_restante = self.emploi.quota_total - self.duree_cours
+        self.emploi.save()
+
+        super().save(*args, **kwargs)
+
+    def clean(self):
+        if self.heure_debut >= self.heure_fin:
+            raise ValidationError(
+                _("L'heure de début doit être antérieure à l'heure de fin."))
+
+        heure_debut = make_aware(datetime.combine(
+            date.today(), self.heure_debut))
+        heure_fin = make_aware(datetime.combine(date.today(), self.heure_fin))
+
+        duree = heure_fin - heure_debut
+        self.duree_cours = duree.seconds // 3600
+
+    def heure_debut_fr(self):
+        return format_time(self.heure_debut, format='short', locale='fr_FR')
+
+    def heure_fin_fr(self):
+        return format_time(self.heure_fin, format='short', locale='fr_FR')
+
+    class Meta:
+        verbose_name = _('Nouvel emploi')
+        verbose_name_plural = _('Nouveaux emplois')

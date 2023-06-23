@@ -58,27 +58,70 @@
                      <div class="form_cont">
                         <!-- page_add.html -->
 
-                        <form method="POST">
-                           {% csrf_token %}
-                           <div class="field form-control rounded-pill bg-info">
-                              {{ form.as_p }}
-                           </div>
-                           <div class="field center" type="submit">
-                              <button type="submit">Enregistrer</button>
-                           </div>
-                        </form>
+                        <div class="container mt-4">
+                           <h1 class="text-center">Emploi du temps</h1>
+                           <div class="table-responsive">
+                              <table class="table table-bordered">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Lundi</th>
+                                       <th scope="col">Mardi</th>
+                                       <th scope="col">Mercredi</th>
+                                       <th scope="col">Jeudi</th>
+                                       <th scope="col">Vendredi</th>
+                                       <th scope="col">Samedi</th>
+                                       <th scope="col">Dimanche</th>
 
-                        {% if form.errors %}
-                        <div class="error-list">
-                           <ul>
-                              {% for field in form %}
-                              {% if field.errors %}
-                              <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
-                              {% endif %}
-                              {% endfor %}
-                           </ul>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>  {{ lundi.0.emploi.cours }} <br>
+                                             {{ lundi.0.emploi.heure_debut }}
+                                          {{ lundi.0.emploi.professeur }}
+                                       </td>
+                                       <td>Cours 2</td>
+                                       <td>Cours 3</td>
+                                       <td>Cours 4</td>
+                                       <td>Cours 5</td>
+                                       <td>Cours 6</td>
+                                       <td>Cours 7</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Cours 1</td>
+                                       <td>Cours 2</td>
+                                       <td>Cours 3</td>
+                                       <td>Cours 4</td>
+                                       <td>Cours 5</td>
+                                       <td>Cours 6</td>
+                                       <td>Cours 7</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Cours 1</td>
+                                       <td>Cours 2</td>
+                                       <td>Cours 3</td>
+                                       <td>Cours 4</td>
+                                       <td>Cours 5</td>
+                                       <td>Cours 6</td>
+                                       <td>Cours 7</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Cours 1</td>
+                                       <td>Cours 2</td>
+                                       <td>Cours 3</td>
+                                       <td>Cours 4</td>
+                                       <td>Cours 5</td>
+                                       <td>Cours 6</td>
+                                       <td>Cours 7</td>
+                                    </tr>
+                                    <!-- Ajoutez d'autres lignes pour les autres plages horaires -->
+                                 </tbody>
+                              </table>
+                           </div>
                         </div>
-                        {% endif %}
+                        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
                      </div>
                   </div>

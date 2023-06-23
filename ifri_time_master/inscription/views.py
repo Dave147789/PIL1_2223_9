@@ -3,18 +3,12 @@ from django.core.validators import validate_email
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from .models import NouveauEmploi
+from datetime import datetime
 
 
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required, user_passes_test
-
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from .forms import EmploiForm
-from .models import Emploi
-from . import models
-from django import forms
 
 
 def index(request):
@@ -121,18 +115,25 @@ def deconnexion(request):
     return redirect('connexion')
 
 
-@login_required(login_url='connexion')
-@user_passes_test(lambda user: user.is_staff, login_url='connexion')
-def page_add(request):
-    submitted = False
-    if request.method == "POST":
-        form = EmploiForm(request.POST)
-        if form.is_valid():
-            form.save(commit=False)
-            return HttpResponseRedirect("/")
-    else:
-        form = EmploiForm()
-        if 'submitted' in request.GET:
-            submitted = True
+def page_admin(request):
+    cours_lundi = NouveauEmploi.objects.filter(jour='lundi')
+    cours_mardi = NouveauEmploi.objects.filter(jour='mardi')
+    cours_mercredi = NouveauEmploi.objects.filter(jour='mercredi')
+    cours_jeudi = NouveauEmploi.objects.filter(jour='jeudi')
+    cours_vendredi = NouveauEmploi.objects.filter(jour='vendredi')
+    cours_samedi = NouveauEmploi.objects.filter(jour='samedi')
+    cours_dimanche = NouveauEmploi.objects.filter(jour='dimanche')
 
-    return render(request, "page_add.html", {'form': form})
+    context = {
+        'lundi': cours_lundi,
+        'mardi': cours_mardi,
+        'mercredi': cours_mercredi,
+        'jeudi': cours_jeudi,
+        'vendredi': cours_vendredi,
+        'samedi': cours_samedi,
+        'dimanche': cours_dimanche,
+    }
+
+    # Effectuez les opérations supplémentaires nécessaires
+
+    return render(request, 'page_admin.html', context)
