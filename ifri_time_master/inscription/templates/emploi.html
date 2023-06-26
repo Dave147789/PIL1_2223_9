@@ -1,0 +1,113 @@
+{% block table %}
+<table class="table table-bordered">
+   <thead>
+      <tr>
+         <th scope="col">Lundi</th>
+         <th scope="col">Mardi</th>
+         <th scope="col">Mercredi</th>
+         <th scope="col">Jeudi</th>
+         <th scope="col">Vendredi</th>
+         <th scope="col">Samedi</th>
+         <th scope="col">Dimanche</th>
+
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>
+            {{ lundi.0.heure_debut }} - {{ lundi.0.heure_fin }} {{ lundi.0.emploi.cours }}
+            <br>
+            {{ lundi.0.emploi.professeur }} <br> Quota Horraire : {{ lundi.0.emploi.quota_restante }}
+         </td>
+         <td>{{ mardi.0.heure_debut }} - {{ mardi.0.heure_fin }} {{ mardi.0.emploi.cours }}
+            <br>
+            {{ mardi.0.emploi.professeur }} <br> Quota Horraire : {{ mardi.0.emploi.quota_restante }}</td>
+         <td>{{ mercredii.0.heure_debut }} - {{ mercredi.0.heure_fin }} {{ mercredi.0.emploi.cours }}
+            <br>
+            {{ mercredi.0.emploi.professeur }} <br> Quota Horraire : {{ mercredi.0.emploi.quota_restante }}</td>
+         <td>{{ jeudi.0.heure_debut }} - {{ jeudi.0.heure_fin }} {{ jeudi.0.emploi.cours }}
+            <br>
+            {{ jeudi.0.emploi.professeur }} <br> Quota Horraire : {{ jeudi.0.emploi.quota_restante }}</td>
+         <td>{{ Vendredi.0.heure_debut }} - {{ Vendredi.0.heure_fin }} {{ Vendredi.0.emploi.cours }}
+            <br>
+            {{Vendredi.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.0.emploi.quota_restante }}</td>
+         <td>{{ samedi.0.heure_debut }} - {{ samedi.0.heure_fin }} {{ samedi.0.emploi.cours }}
+            <br>
+            {{samedi.0.emploi.professeur }} <br> Quota Horraire : {{ samedi.0.emploi.quota_restante }}</td>
+         <td>{{ dimanche.0.heure_debut }} - {{ dimanche.0.heure_fin }} {{ dimanche.0.emploi.cours }}
+            <br>
+            {{dimanche.0.emploi.professeur }} <br> Quota Horraire : {{ dimanche.0.emploi.quota_restante }}</td>
+      </tr>
+      <tr>
+         <td>{{ lundi.1.heure_debut }} - {{ lundi.1.heure_fin }} {{ lundi.1.emploi.cours }}
+            <br>
+            {{ lundi.1.emploi.professeur }} <br> Quota Horraire : {{ lundi.1.emploi.quota_restante }}</td>
+         <td>{{ mardi.0.heure_debut }} - {{ mardi.1.heure_fin }} {{ mardi.1.emploi.cours }}
+            <br>
+            {{ mardi.1.emploi.professeur }} <br> Quota Horraire : {{ mardi.1.emploi.quota_restante }}</td>
+         <td>{{ mercredi.1.heure_debut }} - {{ mercredi.1.heure_fin }} {{ mercredi.1.emploi.cours }}
+            <br>
+            {{ mercredi.1.emploi.professeur }} <br> Quota Horraire : {{ mercredi.1.emploi.quota_restante }}</td>
+         <td>{{ jeudi.1.heure_debut }} - {{ jeudi.1.heure_fin }} {{ jeudi.1.emploi.cours }}
+            <br>
+            {{ jeudi.1.emploi.professeur }} <br> Quota Horraire : {{ jeudi.1.emploi.quota_restante }}</td>
+         <td>{{ Vendredi.1.heure_debut }} - {{ Vendredi.1.heure_fin }} {{ Vendredi.1.emploi.cours }}
+            <br>
+            {{Vendredi.1.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.1.emploi.quota_restante }}</td>
+         <td>{{ samedi.1.heure_debut }} - {{ samedi.1.heure_fin }} {{ samedi.1.emploi.cours }}
+            <br>
+            {{samedi.1.emploi.professeur }} <br> Quota Horraire : {{ samedi.1.emploi.quota_restante }}</td>
+         <td>{{ dimanche.1.heure_debut }} - {{ dimanche.1.heure_fin }} {{ dimanche.1.emploi.cours }}
+            <br>
+            {{dimanche.1.emploi.professeur }} <br> Quota Horraire : {{ dimanche.1.emploi.quota_restante }}</td>
+      </tr>
+      <tr>
+         <td>{{ lundi.2.heure_debut }} - {{ lundi.2.heure_fin }} {{ lundi.2.emploi.cours }}
+            <br>
+            {{ lundi.2.emploi.professeur }} <br> Quota Horraire : {{ lundi.2.emploi.quota_restante }}</td>
+         <td>{{ mardi.0.heure_debut }} - {{ mardi.2.heure_fin }} {{ mardi.2.emploi.cours }}
+            <br>
+            {{ mardi.2.emploi.professeur }} <br> Quota Horraire : {{ mardi.2.emploi.quota_restante }}</td>
+         <td>{{ mercredi.2.heure_debut }} - {{ mercredi.2.heure_fin }} {{ mercredi.2.emploi.cours }}
+            <br>
+            {{ mercredi.2.emploi.professeur }} <br> Quota Horraire : {{ mercredi.2.emploi.quota_restante }}</td>
+         <td>{{ jeudi.2.heure_debut }} - {{ jeudi.2.heure_fin }} {{ jeudi.2.emploi.cours }}
+            <br>
+            {{ jeudi.2.emploi.professeur }} <br> Quota Horraire : {{ jeudi.2.emploi.quota_restante }}</td>
+         <td>{{ Vendredi.2.heure_debut }} - {{ Vendredi.2.heure_fin }} {{ Vendredi.2.emploi.cours }}
+            <br>
+            {{Vendredi.2.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.2.emploi.quota_restante }}</td>
+         <td>{{ samedi.2.heure_debut }} - {{ samedi.2.heure_fin }} {{ samedi.2.emploi.cours }}
+            <br>
+            {{samedi.2.emploi.professeur }} <br> Quota Horraire : {{ samedi.2.emploi.quota_restante }}</td>
+         <td>{{ dimanche.2.heure_debut }} - {{ dimanche.2.heure_fin }} {{ dimanche.2.emploi.cours }}
+            <br>
+            {{dimanche.2.emploi.professeur }} <br> Quota Horraire : {{ dimanche.2.emploi.quota_restante }}</td>
+      </tr>
+      <tr>
+         <td>{{ lundi.3.heure_debut }} - {{ lundi.3.heure_fin }} {{ lundi.3.emploi.cours }}
+            <br>
+            {{ lundi.3.emploi.professeur }} <br> Quota Horraire : {{ lundi.3.emploi.quota_restante }}</td>
+         <td>{{ mardi.0.heure_debut }} - {{ mardi.3.heure_fin }} {{ mardi.3.emploi.cours }}
+            <br>
+            {{ mardi.3.emploi.professeur }} <br> Quota Horraire : {{ mardi.3.emploi.quota_restante }}</td>
+         <td>{{ mercredi.3.heure_debut }} - {{ mercredi.3.heure_fin }} {{ mercredi.3.emploi.cours }}
+            <br>
+            {{ mercredi.3.emploi.professeur }} <br> Quota Horraire : {{ mercredi.3.emploi.quota_restante }}</td>
+         <td>{{ jeudi.3.heure_debut }} - {{ jeudi.3.heure_fin }} {{ jeudi.3.emploi.cours }}
+            <br>
+            {{ jeudi.3.emploi.professeur }} <br> Quota Horraire : {{ jeudi.3.emploi.quota_restante }}</td>
+         <td>{{ Vendredi.3.heure_debut }} - {{ Vendredi.3.heure_fin }} {{ Vendredi.3.emploi.cours }}
+            <br>
+            {{Vendredi.3.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.3.emploi.quota_restante }}</td>
+         <td>{{ samedi.3.heure_debut }} - {{ samedi.3.heure_fin }} {{ samedi.3.emploi.cours }}
+            <br>
+            {{samedi.3.emploi.professeur }} <br> Quota Horraire : {{ samedi.3.emploi.quota_restante }}</td>
+         <td>{{ dimanche.3.heure_debut }} - {{ dimanche.3.heure_fin }} {{ dimanche.3.emploi.cours }}
+            <br>
+            {{dimanche.3.emploi.professeur }} <br> Quota Horraire : {{ dimanche.3.emploi.quota_restante }}</td>
+      </tr>
+      <!-- Ajoutez d'autres lignes pour les autres plages horaires -->
+   </tbody>
+</table>
+{% endblock %}

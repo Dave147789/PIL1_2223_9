@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.core.validators import validate_email
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .models import NouveauEmploi
-from datetime import datetime
+from .models import NouveauEmploi_L1, NouveauEmploi_L2, NouveauEmploi_L3, NouveauEmploi_M1, NouveauEmploi_M2
+from django.contrib.auth.decorators import user_passes_test
 
 
 from django.contrib.admin.views.decorators import staff_member_required
@@ -17,16 +17,14 @@ def index(request):
 
 def inscription(request):
     error = False
-    message = ""
+    message = "Utilisateur enregistré avec succès"
 
     if request.method == "POST":
         username = request.POST.get('username', None)
         name = request.POST.get('name', None)
         surname = request.POST.get('surname', None)
         email = request.POST.get('email', None)
-        phone = request.POST.get('phone', None)
-        matricule = request.POST.get('matricule', None)
-        licence = request.POST.get('licence', None)
+        Licence = request.POST.get('Licence', None)
         password = request.POST.get('password', None)
         repassword = request.POST.get('repassword', None)
 
@@ -34,17 +32,17 @@ def inscription(request):
             validate_email(email)
         except:
             error = True
-            message = "Email Invalide"
+            message = "Email invalide"
 
         if error == False:
             if password != repassword:
                 error = True
-                message = "Mot de Passe invalide"
+                message = "Mot de passe invalide"
 
         user = User.objects.filter(email=email)
         if user:
             error = True
-            message = "L'utilisateur existe déja"
+            message = "L'utilisateur existe déjà"
 
         # register
         if error == False:
@@ -54,11 +52,14 @@ def inscription(request):
                 last_name=surname,
                 email=email,
             )
+            user.set_password(password)
             user.save()
-            # Définir le mot de passe haché
-            user.password = password
-            user.set_password(user.password)
-            user.save()
+
+            # Ajouter l'utilisateur au groupe
+            group = Group.objects.get(name=Licence)
+            group.user_set.add(user)
+            group.save()
+
             message = "Utilisateur enregistré avec succès"
     context = {
         'error': error,
@@ -84,10 +85,10 @@ def connexion(request):
                 return redirect('dashboard')
             else:
                 error = True
-                message = ("mot de passe est incorrect")
+                message = "Mot de passe incorrect"
         else:
             error = True
-            message = ("Email est incorrect")
+            message = "Email incorrect"
 
     context = {
         'error': error,
@@ -95,11 +96,6 @@ def connexion(request):
     }
 
     return render(request, 'login.html', context)
-
-
-@login_required(login_url='connexion')
-def dashboard(request):
-    return render(request, 'dashboard.html')
 
 
 def Contact(request):
@@ -115,14 +111,27 @@ def deconnexion(request):
     return redirect('connexion')
 
 
-def page_admin(request):
-    cours_lundi = NouveauEmploi.objects.filter(jour='lundi')
-    cours_mardi = NouveauEmploi.objects.filter(jour='mardi')
-    cours_mercredi = NouveauEmploi.objects.filter(jour='mercredi')
-    cours_jeudi = NouveauEmploi.objects.filter(jour='jeudi')
-    cours_vendredi = NouveauEmploi.objects.filter(jour='vendredi')
-    cours_samedi = NouveauEmploi.objects.filter(jour='samedi')
-    cours_dimanche = NouveauEmploi.objects.filter(jour='dimanche')
+@login_required(login_url='connexion')
+def dashboard(request):
+    user = request.user
+    if user.groups.filter(name='Licence 1').exists():
+        NouveauEmploi = NouveauEmploi_L1
+    elif user.groups.filter(name='Licence 2').exists():
+        NouveauEmploi = NouveauEmploi_L2
+    elif user.groups.filter(name='Licence 3').exists():
+        NouveauEmploi = NouveauEmploi_L3
+    elif user.groups.filter(name='Master 1').exists():
+        NouveauEmploi = NouveauEmploi_M1
+    elif user.groups.filter(name='Master 2').exists():
+        NouveauEmploi = NouveauEmploi_M2
+
+    cours_lundi = NouveauEmploi.objects.filter(jour='lundi', actif=True)
+    cours_mardi = NouveauEmploi.objects.filter(jour='mardi', actif=True)
+    cours_mercredi = NouveauEmploi.objects.filter(jour='mercredi', actif=True)
+    cours_jeudi = NouveauEmploi.objects.filter(jour='jeudi', actif=True)
+    cours_vendredi = NouveauEmploi.objects.filter(jour='vendredi', actif=True)
+    cours_samedi = NouveauEmploi.objects.filter(jour='samedi', actif=True)
+    cours_dimanche = NouveauEmploi.objects.filter(jour='dimanche', actif=True)
 
     context = {
         'lundi': cours_lundi,
@@ -134,6 +143,4 @@ def page_admin(request):
         'dimanche': cours_dimanche,
     }
 
-    # Effectuez les opérations supplémentaires nécessaires
-
-    return render(request, 'page_admin.html', context)
+    return render(request, 'dashboard.html', context)

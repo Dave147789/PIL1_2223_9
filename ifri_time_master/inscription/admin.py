@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Emploi, NouveauEmploi
+from .models import Emploi, NouveauEmploi_L1,  NouveauEmploi_L2,  NouveauEmploi_L3,  NouveauEmploi_M1,  NouveauEmploi_M2
 
 
 class EmploiAdmin(admin.ModelAdmin):
@@ -10,7 +10,7 @@ class EmploiAdmin(admin.ModelAdmin):
 
 class NouveauEmploiAdmin(admin.ModelAdmin):
     list_display = ('get_cours', 'jour', 'heure_debut',
-                    'heure_fin', 'duree_cours', 'salle', 'actif')
+                    'heure_fin', 'duree_cours', 'salle', 'actif', 'groupe')
     ordering = ('id',)
 
     def get_cours(self, obj):
@@ -20,4 +20,8 @@ class NouveauEmploiAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Emploi, EmploiAdmin)
-admin.site.register(NouveauEmploi, NouveauEmploiAdmin)
+admin.site.register(NouveauEmploi_L1, NouveauEmploiAdmin)
+admin.site.register(NouveauEmploi_L2, NouveauEmploiAdmin)
+admin.site.register(NouveauEmploi_L3, NouveauEmploiAdmin)
+admin.site.register(NouveauEmploi_M1, NouveauEmploiAdmin)
+admin.site.register(NouveauEmploi_M2, NouveauEmploiAdmin)

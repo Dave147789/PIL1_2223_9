@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inscription.views import inscription, connexion, index, Contact, forgot, dashboard, deconnexion, page_admin
+from inscription.views import inscription, connexion, index, Contact, forgot, dashboard, deconnexion, dashboard
 from django.contrib.auth import views
 
 urlpatterns = [
@@ -26,13 +26,16 @@ urlpatterns = [
     path('', index, name='index'),
     path('contact/', Contact, name='contact'),
     path('forgot/', forgot, name='forgot'),
-    path('dashboard/', dashboard, name='dashboard'),
     path('deconnexion/', deconnexion, name='deconnexion'),
-    path('Nouveau_emploi/', page_admin, name='page_admin' ),
-    #mot de passe oublie
-    path('reset_password', views.PasswordResetView.as_view(template_name='forgot.html'), name="reset_password"),
-    path('reset_password_send', views.PasswordResetDoneView.as_view(template_name='forgot_send.html'), name="password_reset_done"),
-    path('reset/<uidb64>/<token>', views.PasswordResetConfirmView.as_view(template_name='forgot_reset.html'),name="password_reset_confirm"),
-    path('reset_password_complete', views.PasswordResetCompleteView.as_view(template_name='forgot_done.html'), name="password_reset_complete")
+    path('dashboard/', dashboard, name='dashboard'),
+    # mot de passe oublie
+    path('reset_password', views.PasswordResetView.as_view(
+        template_name='forgot.html'), name="reset_password"),
+    path('reset_password_send', views.PasswordResetDoneView.as_view(
+        template_name='forgot_send.html'), name="password_reset_done"),
+    path('reset/<uidb64>/<token>', views.PasswordResetConfirmView.as_view(
+        template_name='forgot_reset.html'), name="password_reset_confirm"),
+    path('reset_password_complete', views.PasswordResetCompleteView.as_view(
+        template_name='forgot_done.html'), name="password_reset_complete")
 
 ]

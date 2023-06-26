@@ -1,133 +1,222 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
+<!-- header -->
+<header class="header">
 
-<head>
-    <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Site Metas -->
-    <title>IFRI PLANNING</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- site icon -->
-    <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/png" />
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <!-- FontAwesome Icons core CSS -->
-    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-    <!-- Custom animate styles for this template -->
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{% static 'style.css' %}" rel="stylesheet">
-    <!-- Responsive styles for this template -->
-    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
-    <!-- Colors for this template -->
-    <link href="{% static 'css/colors.css' %}" rel="stylesheet">
-    <!-- light box gallery -->
-    <link href="{% static 'css/ekko-lightbox.css' %}" rel="stylesheet">
-    <!--[if lt IE 9]>
-   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-   <![endif]-->
-</head>
-
-<body id="inner_page">
-    <!-- header -->
-    <header class="header">
-
-        <div class="header_top_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="full">
-                            <div class="logo">
-                                <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 site_information">
-                        <div class="full">
-                            <div class="main_menu">
-                                <nav class="navbar navbar-inverse navbar-toggleable-md">
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                        data-target="#cloapediamenu" aria-controls="cloapediamenu" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                        <span class="float-left">Menu</span>
-                                        <span class="float-right"><i class="fa fa-bars"></i> <i
-                                                class="fa fa-close"></i></span>
-                                    </button>
-                                    <div class="collapse navbar-collapse justify-content-md-center" id="cloapediamenu">
-                                        <ul class="navbar-nav">
-                                            <li class="nav-item active">
-                                                <a class="nav-link" href="{% url 'index' %}">Home</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link color-grey-hover" href="{% url 'contact' %}">Contact
-                                                    Us</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link color-grey-hover" href="{% url 'connexion' %}">Espace
-                                                    Client</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+   <div class="header_top_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3">
+               <div class="full">
+                  <div class="logo">
+                     <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
+                  </div>
+               </div>
             </div>
-        </div>
-
-    </header>
-    <!-- end header -->
-
-    <!-- section -->
-    <section class="layout_padding section">
-        <div class="container">
-            <div class="field center">
-               
-            </div>
-        </div>
-    </section>
-    <!-- end section -->
-
-
-
-    <!-- footer -->
-    <footer class="footer layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <a href="{% url 'deconnexion'  %}"><button>Logout</button></a>
-                    <div class="footer_link_heading">
-                        <div class="footer_menu margin_top_30">
-                            <ul>
-                                <li><a href="tel:9876543210">9876 543 210</a></li>
-                                <li><a href="#">demo@gmail.com</a></li>
-                                <li><a href="#">40 Baria Sreet 133/2 NewYork City, US</a></li>
-                            </ul>
+            <div class="col-lg-9 site_information">
+               <div class="full">
+                  <div class="main_menu">
+                     <nav class="navbar navbar-inverse navbar-toggleable-md">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cloapediamenu"
+                           aria-controls="cloapediamenu" aria-expanded="false" aria-label="Toggle navigation">
+                           <span class="float-left">Menu</span>
+                           <span class="float-right"><i class="fa fa-bars"></i> <i class="fa fa-close"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-md-center" id="cloapediamenu">
+                           <ul class="navbar-nav">
+                              <li class="nav-item active">
+                                 <a class="nav-link" href="{% url 'index' %}">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link color-grey-hover" href="{% url 'contact' %}">Contact Us</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link color-grey-hover" href="{% url 'connexion' %}">Espace Client</a>
+                              </li>
+                           </ul>
                         </div>
-                    </div>
-                </div>
+                     </nav>
+                  </div>
+               </div>
             </div>
-        </div>
-    </footer>
-    <!-- end footer -->
+         </div>
+      </div>
+   </div>
 
-    <!-- Core JavaScript
+</header>
+<!-- end header -->
+
+<!-- section -->
+<section class="layout_padding section">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="contact_section margin_top_30">
+               <div class="row">
+                  <div class="col-md-8 offset-md-2">
+                     <div class="form_cont">
+                        <!-- page_add.html -->
+
+                        <div class="container mt-4">
+                           <h1 class="text-center">Emploi du temps</h1>
+                           <div class="table-responsive">
+                              <table class="table table-bordered">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Lundi</th>
+                                       <th scope="col">Mardi</th>
+                                       <th scope="col">Mercredi</th>
+                                       <th scope="col">Jeudi</th>
+                                       <th scope="col">Vendredi</th>
+                                       <th scope="col">Samedi</th>
+                                       <th scope="col">Dimanche</th>
+
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>
+                                          {{ lundi.0.heure_debut }} - {{ lundi.0.heure_fin }} {{ lundi.0.emploi.licence }}
+                                          <br>
+                                          {{ lundi.0.emploi.professeur }} <br> Quota Horraire : {{ lundi.0.emploi.quota_restante }} <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ mardi.0.heure_debut }} - {{ mardi.0.heure_fin }} {{ mardi.0.emploi.cours }}
+                                          <br>
+                                          {{ mardi.0.emploi.professeur }} <br> Quota Horraire : {{ mardi.0.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ mercredii.0.heure_debut }} - {{ mercredi.0.heure_fin }} {{ mercredi.0.emploi.cours }}
+                                          <br>
+                                          {{ mercredi.0.emploi.professeur }} <br> Quota Horraire : {{ mercredi.0.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ jeudi.0.heure_debut }} - {{ jeudi.0.heure_fin }} {{ jeudi.0.emploi.cours }}
+                                          <br>
+                                          {{ jeudi.0.emploi.professeur }} <br> Quota Horraire : {{ jeudi.0.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ Vendredi.0.heure_debut }} - {{ Vendredi.0.heure_fin }} {{ Vendredi.0.emploi.cours }}
+                                          <br>
+                                          {{Vendredi.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.0.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ samedi.0.heure_debut }} - {{ samedi.0.heure_fin }} {{ samedi.0.emploi.cours }}
+                                          <br>
+                                          {{samedi.0.emploi.professeur }} <br> Quota Horraire : {{ samedi.0.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ dimanche.0.heure_debut }} - {{ dimanche.0.heure_fin }} {{ dimanche.0.emploi.cours }}
+                                          <br>
+                                          {{dimanche.0.emploi.professeur }} <br> Quota Horraire : {{ dimanche.0.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                    </tr>
+                                    <tr>
+                                       <td>{{ lundi.1.heure_debut }} - {{ lundi.1.heure_fin }} {{ lundi.1.emploi.cours }}
+                                          <br>
+                                          {{ lundi.1.emploi.professeur }} <br> Quota Horraire : {{ lundi.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ mardi.0.heure_debut }} - {{ mardi.1.heure_fin }} {{ mardi.1.emploi.cours }}
+                                          <br>
+                                          {{ mardi.1.emploi.professeur }} <br> Quota Horraire : {{ mardi.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ mercredi.1.heure_debut }} - {{ mercredi.1.heure_fin }} {{ mercredi.1.emploi.cours }}
+                                          <br>
+                                          {{ mercredi.1.emploi.professeur }} <br> Quota Horraire : {{ mercredi.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ jeudi.1.heure_debut }} - {{ jeudi.1.heure_fin }} {{ jeudi.1.emploi.cours }}
+                                          <br>
+                                          {{ jeudi.1.emploi.professeur }} <br> Quota Horraire : {{ jeudi.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ Vendredi.1.heure_debut }} - {{ Vendredi.1.heure_fin }} {{ Vendredi.1.emploi.cours }}
+                                          <br>
+                                          {{Vendredi.1.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ samedi.1.heure_debut }} - {{ samedi.1.heure_fin }} {{ samedi.1.emploi.cours }}
+                                          <br>
+                                          {{samedi.1.emploi.professeur }} <br> Quota Horraire : {{ samedi.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ dimanche.1.heure_debut }} - {{ dimanche.1.heure_fin }} {{ dimanche.1.emploi.cours }}
+                                          <br>
+                                          {{dimanche.1.emploi.professeur }} <br> Quota Horraire : {{ dimanche.1.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                    </tr>
+                                    <tr>
+                                       <td>{{ lundi.2.heure_debut }} - {{ lundi.2.heure_fin }} {{ lundi.2.emploi.cours }}
+                                          <br>
+                                          {{ lundi.2.emploi.professeur }} <br> Quota Horraire : {{ lundi.2.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ mardi.0.heure_debut }} - {{ mardi.2.heure_fin }} {{ mardi.2.emploi.cours }}
+                                          <br>
+                                          {{ mardi.2.emploi.professeur }} <br> Quota Horraire : {{ mardi.2.emploi.quota_restante }} <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ mercredi.2.heure_debut }} - {{ mercredi.2.heure_fin }} {{ mercredi.2.emploi.cours }}
+                                          <br>
+                                          {{ mercredi.2.emploi.professeur }} <br> Quota Horraire : {{ mercredi.2.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ jeudi.2.heure_debut }} - {{ jeudi.2.heure_fin }} {{ jeudi.2.emploi.cours }}
+                                          <br>
+                                          {{ jeudi.2.emploi.professeur }} <br> Quota Horraire : {{ jeudi.2.emploi.quota_restante }}  <br> {{ lundi.0.groupe }} </td>
+                                       <td>{{ Vendredi.2.heure_debut }} - {{ Vendredi.2.heure_fin }} {{ Vendredi.2.emploi.cours }}
+                                          <br>
+                                          {{Vendredi.2.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.2.emploi.quota_restante }} <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ samedi.2.heure_debut }} - {{ samedi.2.heure_fin }} {{ samedi.2.emploi.cours }}
+                                          <br>
+                                          {{samedi.2.emploi.professeur }} <br> Quota Horraire : {{ samedi.2.emploi.quota_restante }} <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ dimanche.2.heure_debut }} - {{ dimanche.2.heure_fin }} {{ dimanche.2.emploi.cours }}
+                                          <br>
+                                          {{dimanche.2.emploi.professeur }} <br> Quota Horraire : {{ dimanche.2.emploi.quota_restante }} <br> {{ lundi.0.groupe }}</td>
+                                    </tr>
+                                    <tr>
+                                       <td>{{ lundi.3.heure_debut }} - {{ lundi.3.heure_fin }} {{ lundi.3.emploi.cours }}
+                                          <br>
+                                          {{ lundi.3.emploi.professeur }} <br> Quota Horraire : {{ lundi.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ mardi.0.heure_debut }} - {{ mardi.3.heure_fin }} {{ mardi.3.emploi.cours }}
+                                          <br>
+                                          {{ mardi.3.emploi.professeur }} <br> Quota Horraire : {{ mardi.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ mercredi.3.heure_debut }} - {{ mercredi.3.heure_fin }} {{ mercredi.3.emploi.cours }}
+                                          <br>
+                                          {{ mercredi.3.emploi.professeur }} <br> Quota Horraire : {{ mercredi.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ jeudi.3.heure_debut }} - {{ jeudi.3.heure_fin }} {{ jeudi.3.emploi.cours }}
+                                          <br>
+                                          {{ jeudi.3.emploi.professeur }} <br> Quota Horraire : {{ jeudi.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ Vendredi.3.heure_debut }} - {{ Vendredi.3.heure_fin }} {{ Vendredi.3.emploi.cours }}
+                                          <br>
+                                          {{Vendredi.3.emploi.professeur }} <br> Quota Horraire : {{ Vendredi.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ samedi.3.heure_debut }} - {{ samedi.3.heure_fin }} {{ samedi.3.emploi.cours }}
+                                          <br>
+                                          {{samedi.3.emploi.professeur }} <br> Quota Horraire : {{ samedi.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                       <td>{{ dimanche.3.heure_debut }} - {{ dimanche.3.heure_fin }} {{ dimanche.3.emploi.cours }}
+                                          <br>
+                                          {{dimanche.3.emploi.professeur }} <br> Quota Horraire : {{ dimanche.3.emploi.quota_restante }}  <br> {{ lundi.0.groupe }}</td>
+                                    </tr>
+                                    <!-- Ajoutez d'autres lignes pour les autres plages horaires -->
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- end section -->
+
+
+
+<!-- footer -->
+<footer class="footer layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 col-sm-12">
+            <div class="footer_link_heading">
+               <a href="{% url 'deconnexion'  %}"><button>Logout</button></a>
+               <div class="footer_menu margin_top_30">
+                  <ul>
+                     <li><a href="tel:9876543210">9876 543 210</a></li>
+                     <li><a href="#">demo@gmail.com</a></li>
+                     <li><a href="#">40 Baria Sreet 133/2 NewYork City, US</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</footer>
+<!-- end footer -->
+
+<!-- Core JavaScript
       ================================================== -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/tether.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/parallax.js' %}"></script>
-    <script src="{% static 'js/animate.js' %}"></script>
-    <script src="{% static 'js/ekko-lightbox.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-</body>
-
-</html>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/tether.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/parallax.js' %}"></script>
+<script src="{% static 'js/animate.js' %}"></script>
+<script src="{% static 'js/ekko-lightbox.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+{% endblock %}
