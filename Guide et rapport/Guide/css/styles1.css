@@ -17,20 +17,19 @@ h1{
 
 
 #section {
-    margin-top: 100px;
     font-family:monospace;
 }
 
 .img-responsive {
-    max-width: 100%;
-    height: 65vh;
+    width: 60vh;
+    height: 70vh;
     position: relative;
-    top: 150px;
+    top: 1cm;
 }
 
 .titre_sec {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: 30px;
+    font-size:30px;
     padding: 20px 50px;
     font-family:monospace;
     font-weight: 100px;

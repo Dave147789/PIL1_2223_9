@@ -31,9 +31,6 @@
                               <li class="nav-item">
                                  <a class="nav-link color-grey-hover" href="{% url 'contact' %}">Contact Us</a>
                               </li>
-                              <li class="nav-item">
-                                 <a class="nav-link color-grey-hover" href="{% url 'connexion' %}">Espace Client</a>
-                              </li>
                            </ul>
                         </div>
                      </nav>
@@ -183,10 +180,13 @@
             </div>
          </div>
       </div>
+      <a href="{% url 'deconnexion'  %}">
+         <button class="btn btn-danger">Logout</button>
+       </a>
+       
    </div>
 </section>
 <!-- end section -->
-
 
 
 <!-- footer -->
@@ -195,7 +195,6 @@
       <div class="row">
          <div class="col-md-4 col-sm-12">
             <div class="footer_link_heading">
-               <a href="{% url 'deconnexion'  %}"><button>Logout</button></a>
                <div class="footer_menu margin_top_30">
                   <ul>
                      <li><a href="tel:9876543210">9876 543 210</a></li>
