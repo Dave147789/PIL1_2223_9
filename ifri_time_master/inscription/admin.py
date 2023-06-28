@@ -9,14 +9,12 @@ class EmploiAdmin(admin.ModelAdmin):
 
 
 class NouveauEmploiAdmin(admin.ModelAdmin):
-    list_display = ('get_cours', 'jour', 'heure_debut',
-                    'heure_fin', 'duree_cours', 'salle', 'actif', 'groupe')
+    list_display = ('get_cours', 'jour', 'heure_debut', 'heure_fin',
+                    'duree_cours', 'salle', 'actif', 'groupe', 'texte')
     ordering = ('id',)
 
     def get_cours(self, obj):
         return obj.emploi.cours
-
-    get_cours.short_description = 'Cours'
 
 
 admin.site.register(Emploi, EmploiAdmin)

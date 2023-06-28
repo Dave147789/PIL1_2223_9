@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inscription.views import inscription, connexion, index, Contact, forgot, dashboard, deconnexion, dashboard
+from inscription.views import inscription, connexion, index, Contact, forgot, dashboard, deconnexion, dashboard, profil
 from django.contrib.auth import views
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     path('forgot/', forgot, name='forgot'),
     path('deconnexion/', deconnexion, name='deconnexion'),
     path('dashboard/', dashboard, name='dashboard'),
+    path('profil/', profil, name='profil'),
     # mot de passe oublie
     path('reset_password', views.PasswordResetView.as_view(
         template_name='forgot.html'), name="reset_password"),
@@ -37,5 +38,4 @@ urlpatterns = [
         template_name='forgot_reset.html'), name="password_reset_confirm"),
     path('reset_password_complete', views.PasswordResetCompleteView.as_view(
         template_name='forgot_done.html'), name="password_reset_complete")
-
 ]

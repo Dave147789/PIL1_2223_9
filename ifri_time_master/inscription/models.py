@@ -7,20 +7,8 @@ from datetime import date
 from babel.dates import format_time
 
 
-COURS_CHOICES = (
-    ('maths', 'Mathématiques'),
-    ('francais', 'Français'),
-    ('histoire', 'Histoire'),
-    # Ajoutez d'autres choix ici
-)
 
 
-PROFESSEUR_CHOICES = (
-    ('Professeur 1', 'nom 1'),
-    ('Professeur 2', 'nom 2'),
-    ('Professeur 3', 'nom 3'),
-    # Ajoutez d'autres choix ici
-)
 
 SALLES_CHOICES = (
     ('IRAN1', 'IRAN1'),
@@ -54,14 +42,19 @@ GROUPES_CHOICES = (
 
 class Emploi(models.Model):
     cours = models.CharField(
-        max_length=50, choices=COURS_CHOICES, default='maths', null=False)
+        max_length=50, default='maths', null=False)
     professeur = models.CharField(
-        max_length=50, choices=PROFESSEUR_CHOICES, default='prof1')
+        max_length=50, default='prof1')
     quota_total = models.IntegerField(default=30)
     quota_restante = models.IntegerField(default=30)
 
+    def __str__(self):
+        return self.cours
+
 
 class NouveauEmploi_L1(models.Model):
+    texte = models.CharField(max_length=1000, null=True)
+    semaine = models.CharField(max_length=50, default="Semaine du __ au __")
     emploi = models.ForeignKey(Emploi, on_delete=models.CASCADE)
     jour = models.CharField(max_length=10, choices=JOUR_CHOICES)
     heure_debut = models.TimeField(verbose_name=_('Heure de début'))
@@ -103,6 +96,8 @@ class NouveauEmploi_L1(models.Model):
 
 
 class NouveauEmploi_L2(models.Model):
+    texte = models.CharField(max_length=1000, null=True)
+    semaine = models.CharField(max_length=50, default="Semaine du __ au __")
     emploi = models.ForeignKey(Emploi, on_delete=models.CASCADE)
     jour = models.CharField(max_length=10, choices=JOUR_CHOICES)
     heure_debut = models.TimeField(verbose_name=_('Heure de début'))
@@ -144,6 +139,8 @@ class NouveauEmploi_L2(models.Model):
 
 
 class NouveauEmploi_L3(models.Model):
+    texte = models.CharField(max_length=1000, null=True)
+    semaine = models.CharField(max_length=50, default="Semaine du __ au __")
     emploi = models.ForeignKey(Emploi, on_delete=models.CASCADE)
     jour = models.CharField(max_length=10, choices=JOUR_CHOICES)
     heure_debut = models.TimeField(verbose_name=_('Heure de début'))
@@ -185,6 +182,8 @@ class NouveauEmploi_L3(models.Model):
 
 
 class NouveauEmploi_M1(models.Model):
+    texte = models.CharField(max_length=1000, null=True)
+    semaine = models.CharField(max_length=50, default="Semaine du __ au __")
     emploi = models.ForeignKey(Emploi, on_delete=models.CASCADE)
     jour = models.CharField(max_length=10, choices=JOUR_CHOICES)
     heure_debut = models.TimeField(verbose_name=_('Heure de début'))
@@ -226,6 +225,8 @@ class NouveauEmploi_M1(models.Model):
 
 
 class NouveauEmploi_M2(models.Model):
+    texte = models.CharField(max_length=1000, null=True)
+    semaine = models.CharField(max_length=50, default="Semaine du __ au __")
     emploi = models.ForeignKey(Emploi, on_delete=models.CASCADE)
     jour = models.CharField(max_length=10, choices=JOUR_CHOICES)
     heure_debut = models.TimeField(verbose_name=_('Heure de début'))

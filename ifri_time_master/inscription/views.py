@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import NouveauEmploi_L1, NouveauEmploi_L2, NouveauEmploi_L3, NouveauEmploi_M1, NouveauEmploi_M2
 from django.contrib.auth.decorators import user_passes_test
-
-
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -112,26 +110,38 @@ def deconnexion(request):
 
 
 @login_required(login_url='connexion')
+def profil(request):
+    return render(request, 'profil.html')
+
+
+
+@login_required(login_url='connexion')
 def dashboard(request):
     user = request.user
+    groupe = ''
     if user.groups.filter(name='Licence 1').exists():
         NouveauEmploi = NouveauEmploi_L1
+        groupe = 'Licence 1'
     elif user.groups.filter(name='Licence 2').exists():
         NouveauEmploi = NouveauEmploi_L2
+        groupe = 'Licence 2'
     elif user.groups.filter(name='Licence 3').exists():
         NouveauEmploi = NouveauEmploi_L3
+        groupe = 'Licence 3'
     elif user.groups.filter(name='Master 1').exists():
         NouveauEmploi = NouveauEmploi_M1
+        groupe = 'Master 1'
     elif user.groups.filter(name='Master 2').exists():
         NouveauEmploi = NouveauEmploi_M2
+        groupe = 'Master 2'
 
-    cours_lundi = NouveauEmploi.objects.filter(jour='lundi', actif=True)
-    cours_mardi = NouveauEmploi.objects.filter(jour='mardi', actif=True)
-    cours_mercredi = NouveauEmploi.objects.filter(jour='mercredi', actif=True)
-    cours_jeudi = NouveauEmploi.objects.filter(jour='jeudi', actif=True)
-    cours_vendredi = NouveauEmploi.objects.filter(jour='vendredi', actif=True)
-    cours_samedi = NouveauEmploi.objects.filter(jour='samedi', actif=True)
-    cours_dimanche = NouveauEmploi.objects.filter(jour='dimanche', actif=True)
+    cours_lundi = list(NouveauEmploi.objects.filter(jour='lundi', actif=True).values())
+    cours_mardi = list(NouveauEmploi.objects.filter(jour='mardi', actif=True).values())
+    cours_mercredi = list(NouveauEmploi.objects.filter(jour='mercredi', actif=True).values())
+    cours_jeudi = list(NouveauEmploi.objects.filter(jour='jeudi', actif=True).values())
+    cours_vendredi = list(NouveauEmploi.objects.filter(jour='vendredi', actif=True).values())
+    cours_samedi = list(NouveauEmploi.objects.filter(jour='samedi', actif=True).values())
+    cours_dimanche = list(NouveauEmploi.objects.filter(jour='dimanche', actif=True).values())
 
     context = {
         'lundi': cours_lundi,
