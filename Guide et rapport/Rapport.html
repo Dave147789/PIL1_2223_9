@@ -7,71 +7,356 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles1.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="./css/main.css" rel="stylesheet" />
 
-  <title>Rapport De projet</title>
+  <title>Rapport de Projet - Gestion des emplois du temps</title>
+
 </head>
+<div id="tous" class="container">
+  <div class="v1_2">
+    <div class="v1_3">
+      <div class="v1_4"></div>
+      <div class="v1_5"><span class="v1_6"><b>INSTITUT DE FORMATION ET DE RECHERCHE EN INFORMATQUE</b></span><span
+          class="v1_7">Nous bâtisons l'excellence</span></div>
+    </div>
+    <div class="v1_8"><span class="v1_9"><b>UNIVERSITE D'ABOMEY-CALAVI</b></span>
+      <div class="v1_10">
+        <div class="v1_11"></div>
+        <div class="v1_12"></div>
+        <div class="v1_13"></div>
+      </div>
+      <div class="v1_14"><span class="v1_15">MNISTERE DE L'ENSEIGNEMENT SUPERIEUR ET DE LA RECHERCHE SCIENTIFIQUE</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <body>
   <header>
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="Guide.html">Manuel D'utilisation</a>
+        <a class="nav-link" aria-current="page" href="Guide.html"><b>Manuel D'utilisation</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="Rapport.html">Rapport Groupe 09</a>
+        <a class="nav-link active" href="Rapport.html"><b>Rapport Groupe 09</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Code Source.html">Les Codes SOurces</a>
+        <a class="nav-link" href="Code Source.html"><b>Les Codes Sources</b></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="instruction.html">Instruction de Deploiement</a>
-    </li>
+
     </ul>
   </header>
-  <h1><u>Rapport </u></h1>
-  <div>
-    <p>
-      Le projet qui nous ait été donné est réalisé à la similitude près du canevas exigé dans le charge de charge
-      fourni au tout début. En effet , sont<br>
-      membre du groupe 9 ceux dont les noms suivent:
-    <ol type="1">
-      <li> AKPLOGAN Prince </li>
-      <li>AZAGBA Lheureux</li>
-      <li>AMAGBEGNON Rosmé</li>
-      <li> SANTOS Fortunat</li>
-      <li> HOULONOn Hans</li>
-      <li> OWOLEGBON N. Peace-Mael</li>
-      <li> YAHOSSA Geoffroy</li>
-      <li> ABEVI Hubert</li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+  <h1>
+    <title>Rapport de Projet - Gestion des emplois du temps</title>
+  </h1>
+
+  <div class="container">
+
+    <h1><b>Rapport de Projet - Gestion des emplois du temps</b></h1>
+    <br>
+
+    <h2><b>Groupe : N° 9</b></h2>
+    <br>
+    <div class="row">
+      <div class="col-8">
+        <h3><b>Membres du groupe :</b></h3>
+        <br>
+
+        <ul>
+          <li><b>ABEVI Hubert</b></li>
+          <li><b>AHOSSA Mahounan Géoffroy</b></li>
+          <li><b>AKPLOGAN Prince</b></li>
+          <li><b>AMAGBEGNON Rosmé Essé</b></li>
+          <li>
+            <b class="d-inline">AZAGBA K. D. Lheureux</b>
+            <h3 class="text-primary d-inline ml-2">Chef de Projet</h3>
+          </li>
+          <li><b>FOLAWE Milarépa</b></li>
+          <li><b>Houlonon Hans</b></li>
+          <li><b>OWOLEGBON Noudohouénou Peace-Maël</b></li>
+          <li><b>SANTOS Fortunat</b></li>
+        </ul>
+      </div>
+      <div class="col-4">
+        <h3><b>Professeurs Encadreurs :</b></h3>
+        <br>
+
+        <ul>
+          <li><b>Mr Armand ACCROMBESSI</b></li>
+          <li><b>Mr Houndji Vinasetan Ratheil</b></li>
+          <li><b>Mr Pierre Jérôme ZOHOU</b></li>
+        </ul>
+
+
+      </div>
+    </div>
+    <div class="container">
+      <h3 class="text-center">
+        <b class="text-decoration-underline">Introduction</b>
+      </h3>
+    </div>
+    <br>
+
+    <p>Le présent rapport décrit notre projet de réalisation d'une application web de gestion des emplois du temps
+      pour
+      l'Institut de Formation et de Recherche en Informatique (IFRI), durant l'année académique 2022-2023. Notre
+      objectif principal était de développer une solution efficace et conviviale pour les étudiants et les
+      coordonnateurs de formation, en leur permettant d'éditer et de consulter facilement les emplois du temps.</p>
+    <br>
+
+
+    <div class="container">
+      <h3 class="text-center">
+        <b class="text-decoration-underline">Description Du Projet</b>
+      </h3>
+    </div> <br>
+
+    <p>Notre application web de gestion des emplois du temps repose sur une architecture client-serveur. Elle comprend
+      les modules suivants :</p>
+    <ul>
+      <li><b>Gestion des enseignements et de la masse horaire :</b> Cette fonctionnalité est réservée aux coordonnateurs
+        de
+        formation, qui peuvent créer et organiser les emplois du temps en fonction des enseignements et des heures
+        prévues.</li>
+      <li><b>Planification des emplois du temps :</b> Les coordonnateurs de formation peuvent éditer les emplois du
+        temps
+        hebdomadaires, en spécifiant les cours, les enseignants et les salles de classe correspondantes pour chaque
+        plage horaire.</li>
+      <li><b>Consultation des emplois du temps publiés :</b> Les étudiants peuvent consulter les emplois du temps
+        hebdomadaires
+        qui ont été publiés par les coordonnateurs de formation. Ils peuvent filtrer les emplois du temps par filière,
+        groupe ou enseignant pour une recherche plus facile.</li>
+    </ul>
+    <br>
+
+    <div class="container">
+      <h3 class="text-center">
+        <b class="text-decoration-underline">Conception de l'Application</b>
+      </h3>
+    </div> <br>
+    <p>Nous avons choisi d'utiliser le framework Django en Python pour le développement de notre application web de
+      gestion des emplois du temps. Django est un framework puissant et flexible qui facilite la création d'applications
+      web robustes et évolutives. Python, quant à lui, est un langage de programmation populaire et polyvalent, qui
+      offre de nombreuses fonctionnalités et une syntaxe simple et lisible.</p>
+    <p>Pour la gestion des données, nous avons opté pour MySQL comme système de gestion de base de données. MySQL est un
+      système de base de données relationnelle fiable et performant, largement utilisé dans l'industrie. Nous avons
+      conçu une structure de base de données relationnelle en utilisant les fonctionnalités offertes par MySQL,
+      permettant ainsi de stocker et de gérer efficacement les informations relatives aux emplois du temps, aux
+      enseignements, aux enseignants et aux salles de classe.</p>
+    <p>Afin d'organiser notre projet et de le rendre maintenable, nous avons adopté une structure modulaire. Notre
+      projet Django est divisé en plusieurs modules, chacun ayant sa propre responsabilité. Voici un aperçu des modules
+      principaux :</p>
+    <ul>
+      <li><b>Modèles de données :</b> Ce module contient les définitions des modèles de données qui décrivent la
+        structure des informations stockées dans la base de données. Nous avons créé des modèles pour représenter les
+        enseignements, les enseignants, les emplois du temps, les salles de classe, etc.</li>
+      <li><b>Vues :</b> Les vues sont responsables de la logique métier de notre application. Elles traitent les
+        requêtes HTTP, effectuent des opérations sur les modèles de données et renvoient les réponses appropriées. Nous
+        avons créé des vues pour gérer la création, la modification, la suppression et la consultation des emplois du
+        temps.</li>
+      <li><b>Templates :</b> Les templates sont utilisés pour générer les pages HTML dynamiques de notre application.
+        Nous avons créé des templates pour afficher les emplois du temps, les formulaires d'édition, les messages de
+        confirmation, etc. Les templates utilisent le langage de templating de Django pour intégrer les données
+        dynamiques dans les pages.</li>
+      <li><b>Fichiers statiques :</b> Ce module contient les fichiers statiques tels que les fichiers CSS, JavaScript,
+        les images, etc. Ces fichiers sont utilisés pour styliser et améliorer l'interface utilisateur de notre
+        application.</li>
+    </ul>
+    <p>Cette structure modulaire facilite la maintenance, l'extension et la collaboration sur notre application. Chaque
+      module est responsable d'une partie spécifique de l'application, ce qui rend le code plus lisible et plus facile à
+      gérer.</p>
+    <p>Ainsi, en utilisant Django, MySQL et une structure modulaire, nous avons pu concevoir une application web de
+      gestion des emplois du temps qui répond aux besoins des étudiants et des coordonnateurs de formation de manière
+      efficace et conviviale.</p>
+
+    <div class="container">
+      <h3 class="text-center">
+        <b class="text-decoration-underline">Déploiement et Utilisation</b>
+      </h3>
+    </div>
+    <p>Pour déployer notre application, veuillez suivre les instructions détaillées ci-dessous :</p>
+    <ol>
+      <li><b>Cloner le dépôt Github du projet "PIL1_2223_9" sur votre machine locale :</b> Ouvrez votre terminal ou
+        votre interface de ligne de commande, puis exécutez la commande suivante :
+        <pre>git clone https://github.com/votre-utilisateur/PIL1_2223_9.git</pre>
+        Assurez-vous d'avoir Git installé sur votre système pour pouvoir utiliser la commande de clonage.
+      </li>
+      <li><b>Assurez-vous d'avoir installé Python et Django sur votre système :</b> Vérifiez que Python est installé en
+        exécutant la commande suivante dans votre terminal :
+        <pre>python --version</pre>
+        Si Python est installé, vous verrez sa version s'afficher. Pour installer Django, utilisez la commande suivante
+        :
+        <pre>pip install django</pre>
+        Cela installera Django et ses dépendances nécessaires.
+      </li>
+      <li><b>Créez un environnement virtuel et activez-le :</b> Un environnement virtuel est recommandé pour isoler les
+        dépendances du projet. Dans votre terminal, exécutez les commandes suivantes :
+        <pre>python -m venv mon_environnement</pre>
+        <pre>source mon_environnement/bin/activate</pre>
+        Cela créera un nouvel environnement virtuel et l'activera.
+      </li>
+      <li><b>Installez les dépendances du projet en exécutant la commande suivante :</b> Accédez au répertoire du projet
+        en utilisant la commande <code>cd PIL1_2223_9</code>, puis exécutez la commande suivante pour installer les
+        dépendances :
+        <pre>pip install -r requirements.txt</pre>
+        Cela installera toutes les bibliothèques et les modules nécessaires pour exécuter l'application.
+      </li>
+      <li><b>Configurez les informations de la base de données dans le fichier de configuration :</b> Ouvrez le fichier
+        de configuration <code>settings.py</code> dans le répertoire <code>PIL1_2223_9/projet</code> et recherchez la
+        section de configuration de la base de données. Remplacez les paramètres par ceux correspondant à votre
+        environnement de base de données (par exemple, nom d'utilisateur, mot de passe, hôte, port).</li>
+      <li><b>Effectuez les migrations de la base de données en utilisant la commande :</b> Dans votre terminal, exécutez
+        la commande suivante pour appliquer les migrations de la base de données :
+        <pre>python manage.py migrate</pre>
+        Cela créera les tables nécessaires dans votre base de données.
+      </li>
+      <li><b>Lancez le serveur de développement en utilisant la commande :</b> Pour démarrer le serveur de
+        développement, exécutez la commande suivante :
+        <pre>python manage.py runserver</pre>
+        Le serveur sera lancé et vous pourrez accéder à l'application localement à l'adresse
+        <code>http://localhost:8000/</code>.
+      </li>
+      <li><b>Accédez à l'application via l'URL fournie par le serveur de développement :</b> Ouvrez votre navigateur web
+        et accédez à l'URL <code>http://localhost:8000/</code>. Vous serez redirigé vers la page d'accueil de
+        l'application.</li>
     </ol>
+    <p>En suivant ces étapes, vous serez en mesure de déployer et d'utiliser notre application sans aucun problème.
+      Assurez-vous de suivre chaque étape avec attention pour garantir un déploiement réussi.</p>
 
+
+    <p>Un manuel d'utilisation détaillé est également disponible dans notre rapport de projet en HTML, qui est inclus
+      dans le dépôt Github.</p> <br>
+    <div class="container">
+      <h3 class="text-center">
+        <b class="text-decoration-underline">Répartition Des Taches</b>
+      </h3>
+    </div>
+    <table class="table table-bordered task-table">
+      <thead>
+        <tr>
+          <th>Membre</th>
+          <th>Tâches</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ABEVI Hubert</td>
+          <td>
+            <ul>
+
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>AHOSSA Mahounan Géoffroy</td>
+          <td>
+            <ul>
+              <li>Recherche et collecte des informations nécessaires au projet.</li>
+              <li>Participation aux réunions de suivi et à la coordination des efforts.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>AKLOGAN Prince</td>
+          <td>
+            <ul>
+              <li>Conception et modélisation de la base de données.</li>
+              <li>Participation aux réunions de suivi et à la coordination des efforts.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>AMAGBEGNON Rosmé Essé</td>
+          <td>
+            <ul>
+              <li>Développement du front-end (10% du front-end)</li>
+              <li>Mise en place du design et de la mise en page de l'application.</li>
+              <li>Participation aux réunions de suivi et à la coordination des efforts.</li>
+              <li>Développement du front-end (15% du front-end)</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>AZAGBA K. D. Lheureux (Chef de Projet)</td>
+          <td>
+            <ul>
+              <li>Coordination de l'équipe et répartition des tâches.</li>
+              <li>Conception de l'architecture globale de l'application.</li>
+              <li>Développement des fonctionnalités du back-end(100% du back-end).</li>
+              <li>Développement du front-end (30% du front-end)</li>
+              <li>Conception des maquettes</li>
+              <li>Documentation du projet et rédaction du Rapport.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>FOLAWE Milarépa</td>
+          <td>
+            <ul>
+              <li>Recherche et collecte des informations nécessaires au projet.</li>
+              <li>Participation aux réunions de suivi et à la coordination des efforts.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Houlonon Hans</td>
+          <td>
+            <ul>
+              <li>Développement du front-end (40% du front-end)</li>
+              <li>Recherche et collecte des informations nécessaires au projet.</li>
+              <li>Participation aux réunions de suivi et à la coordination des efforts.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>OWOLEGBON Noudohouénou Peace-Maël</td>
+          <td>
+            <ul>
+              <li>Développement du front-end (20% du front-end)</li>
+              <li>Intégration des maquettes et des designs</li>
+              <li>Documentation du projet et rédaction du Guide.</li>
+              <li>Assistance technique dans le développement des fonctionnalités.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>SANTOS Fortunat</td>
+          <td>
+            <ul>
+              <li>Tests et validation des fonctionnalités développées.</li>
+              <li>Participation aux réunions de suivi et à la coordination des efforts.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="container">
+      <h3 class="text-center">
+        <b class="text-decoration-underline">Conclusion</b>
+      </h3>
+    </div>
+
+    <p>Notre projet de gestion des emplois du temps pour l'IFRI a été réalisé avec succès. Nous avons développé une
+      application web fonctionnelle qui répond aux besoins des étudiants et des coordonnateurs de formation. Nous
+      avons
+      respecté les délais et travaillé en collaboration pour atteindre nos objectifs communs. Le code source, le
+      rapport
+      de projet et la structure de la base de données sont disponibles dans le dépôt Github du groupe.</p>
+
+    <p>Nous tenons à remercier notre enseignant responsable, Ratheil Houndji, ainsi que nos enseignants impliqués et
+      tuteurs, Armand Accrombessi et Pierre Jérôme Zohou, pour leur soutien et leurs conseils tout au long du projet.
     </p>
-  </div>
-  <div>
-    <h2><u>Contributions de chaque membre du groupe</u></h2>
-    AKPLOGAN Prince :
-    <p></p>
-    AZAGBA Lheureux:
-    <p></p>
-    AMAGBEGNON Rosmé :
-    <p></p>
-    SANTOS Fortunat:
-    <p></p>
-    HOULONOn Hans:
-    <p></p>
-    OWOLEGBON N. Peace-Mael :
-    <p></p>
-    YAHOSSA Geoffroy :
-    <p></p>
-    ABEVI Hubert :
-    <p></p>
 
-  </div>
+    <p>Nous sommes fiers du travail accompli et espérons que notre application sera utile à la communauté estudiantine
+      de l'IFRI.</p> <br>
 
 </body>
+<footer class="pied">
+  <p>© 2023 Ifri Time Master</p>
+</footer>
+
 
 </html>

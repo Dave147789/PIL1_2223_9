@@ -4,9 +4,6 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import NouveauEmploi_L1, NouveauEmploi_L2, NouveauEmploi_L3, NouveauEmploi_M1, NouveauEmploi_M2
-from django.contrib.auth.decorators import user_passes_test
-from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 def index(request):
@@ -114,7 +111,6 @@ def profil(request):
     return render(request, 'profil.html')
 
 
-
 @login_required(login_url='connexion')
 def dashboard(request):
     user = request.user
@@ -135,13 +131,20 @@ def dashboard(request):
         NouveauEmploi = NouveauEmploi_M2
         groupe = 'Master 2'
 
-    cours_lundi = list(NouveauEmploi.objects.filter(jour='lundi', actif=True).values())
-    cours_mardi = list(NouveauEmploi.objects.filter(jour='mardi', actif=True).values())
-    cours_mercredi = list(NouveauEmploi.objects.filter(jour='mercredi', actif=True).values())
-    cours_jeudi = list(NouveauEmploi.objects.filter(jour='jeudi', actif=True).values())
-    cours_vendredi = list(NouveauEmploi.objects.filter(jour='vendredi', actif=True).values())
-    cours_samedi = list(NouveauEmploi.objects.filter(jour='samedi', actif=True).values())
-    cours_dimanche = list(NouveauEmploi.objects.filter(jour='dimanche', actif=True).values())
+    cours_lundi = list(NouveauEmploi.objects.filter(
+        jour='lundi', actif=True).values())
+    cours_mardi = list(NouveauEmploi.objects.filter(
+        jour='mardi', actif=True).values())
+    cours_mercredi = list(NouveauEmploi.objects.filter(
+        jour='mercredi', actif=True).values())
+    cours_jeudi = list(NouveauEmploi.objects.filter(
+        jour='jeudi', actif=True).values())
+    cours_vendredi = list(NouveauEmploi.objects.filter(
+        jour='vendredi', actif=True).values())
+    cours_samedi = list(NouveauEmploi.objects.filter(
+        jour='samedi', actif=True).values())
+    cours_dimanche = list(NouveauEmploi.objects.filter(
+        jour='dimanche', actif=True).values())
 
     context = {
         'lundi': cours_lundi,
@@ -154,3 +157,4 @@ def dashboard(request):
     }
 
     return render(request, 'dashboard.html', context)
+

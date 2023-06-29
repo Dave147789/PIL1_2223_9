@@ -265,3 +265,4 @@ class NouveauEmploi_M2(models.Model):
     class Meta:
         verbose_name = _('Nouvel emploi Master 2')
         verbose_name_plural = _('Nouveaux emplois Master 2')
+
