@@ -3,11 +3,9 @@
 
 * {
     font-family: monospace;
-    ;
 }
 
 body {
-    margin: 0 auto;
     padding: 140px;
     background: #f5f5f5;
     font-size: 24px;
@@ -30,6 +28,9 @@ h1 {
     top: 1cm;
 }
 
+.img-responsive0 {
+   width: 200vh;
+}
 .titre_sec {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-size: 30px;
@@ -65,3 +66,6 @@ h1 {
 .task-table ul {
     list-style-type: disc;
 }
+
+.full-width-btn {
+    width: 100%;}
