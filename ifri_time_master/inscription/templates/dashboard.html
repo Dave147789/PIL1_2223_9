@@ -47,17 +47,34 @@
 
 <!-- section -->
 <section class="layout_padding section">
-   <div class="container">
+   <div class="container-fluid">
       <div class="row">
          <div class="col-md-12">
             <div class="contact_section margin_top_30">
                <div class="row">
-                  <div class="col-md-8 offset-md-2">
+                  {% if show_message %}
+                  <div role="dialog" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false" style="background-color: rgb(210, 214, 217);">
+                     <div class="toast-header">
+                       <img src="{% static 'images/admin.png' %}" class="rounded me-2" alt="...">
+                       <strong class="me-auto">Admin</strong>
+                       <small>Cette notification disparaitra dans 24h</small>
+                       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                     </div>
+                     <div class="toast-body bg-white">
+                            {% for message in messages %}
+                                <div class="message" style="color: rgb(0, 0, 0);">{{ message }}</div>
+                            {% endfor %}
+                    </div>
+                    
+                   </div>
+                 </div>
+                 {% endif %}
+
+                  <div class="col-md-10 offset-md-1">
                      <div class="form_cont">
                         <!-- page_add.html -->
-
                         <div class="container mt-4">
-                           <h1 class="text-center">Emploi du temps du  {{ lundi.0.semaine }}</h1>
+                           <h1 class="text-center">Emploi du temps du  {{ groupe }} <br> {{ lundi.0.semaine }}</h1>
                            <div class="table-responsive">
                               <table class="table table-bordered">
                                  <thead>
@@ -69,7 +86,6 @@
                                        <th scope="col">Vendredi</th>
                                        <th scope="col">Samedi</th>
                                        <th scope="col">Dimanche</th>
-
                                     </tr>
                                  </thead>
                                  <strong>
@@ -173,10 +189,10 @@
                               </table>
                            </div>
                         </div>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
                         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
                         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
                         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
                      </div>
                   </div>
                </div>
@@ -214,11 +230,10 @@
 
 <!-- Core JavaScript
       ================================================== -->
+
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/tether.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/parallax.js' %}"></script>
 <script src="{% static 'js/animate.js' %}"></script>
-<script src="{% static 'js/ekko-lightbox.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
 {% endblock %}

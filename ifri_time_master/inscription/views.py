@@ -3,7 +3,9 @@ from django.core.validators import validate_email
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .models import NouveauEmploi_L1, NouveauEmploi_L2, NouveauEmploi_L3, NouveauEmploi_M1, NouveauEmploi_M2
+from .models import NouveauEmploi_L1, NouveauEmploi_L2, NouveauEmploi_L3, NouveauEmploi_M1, NouveauEmploi_M2, Notification
+from datetime import timedelta, datetime, timezone
+from django.contrib import messages
 
 
 def index(request):
@@ -131,6 +133,25 @@ def dashboard(request):
         NouveauEmploi = NouveauEmploi_M2
         groupe = 'Master 2'
 
+    premier_notification = Notification.objects.first()
+
+    if premier_notification is not None:
+        notif = premier_notification.texte_notification
+    else:
+        notif = None
+
+    if notif is not None:
+        messages.add_message(request, messages.INFO, notif)
+
+    expiration_time = datetime.now() + timedelta(hours=24)
+    expiration_time_str = expiration_time.strftime("%Y-%m-%d %H:%M:%S")
+    request.session['message_expiration'] = expiration_time_str
+    message_expiration = request.session.get('message_expiration')
+
+    if message_expiration and datetime.now() < datetime.strptime(message_expiration, "%Y-%m-%d %H:%M:%S"):
+        show_message = True
+    else:
+        show_message = False
     cours_lundi = list(NouveauEmploi.objects.filter(
         jour='lundi', actif=True).values())
     cours_mardi = list(NouveauEmploi.objects.filter(
@@ -154,7 +175,9 @@ def dashboard(request):
         'vendredi': cours_vendredi,
         'samedi': cours_samedi,
         'dimanche': cours_dimanche,
+        'groupe': groupe,
+        'show_message': show_message,
+
     }
 
     return render(request, 'dashboard.html', context)
-

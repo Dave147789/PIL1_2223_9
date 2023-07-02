@@ -55,22 +55,19 @@
             <div class="col-md-12">
                 <div class="contact_section margin_top_30">
                     <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <div class="form_cont">
-                                <div class="user_info">
-                                    <h3 class="mb-3"><strong>NOM :</strong> {{ user.first_name }}</h3>
-                                    <h3 class="mb-3"><strong>PRENOM :</strong> {{ user.last_name }}</h3>
-                                    <h3 class="mb-3"><strong>USERNAME :</strong> {{ user.username }}</h3>
-                                    <h3 class="mb-3"><strong>EMAIL :</strong> {{ user.email }}</h3>
-                                    <!-- Ajoutez d'autres informations de l'utilisateur ici avec des marges appropriées -->
-                                </div>
-
-                            </div>
+                        <div class="col-9">
+                            <h3 class="mb-3"><strong>NOM :</strong> {{ user.first_name }}</h3>
+                            <h3 class="mb-3"><strong>PRENOM :</strong> {{ user.last_name }}</h3>
+                            <h3 class="mb-3"><strong>USERNAME :</strong> {{ user.username }}</h3>
+                            <h3 class="mb-3"><strong>EMAIL :</strong> {{ user.email }}</h3>
+                            <!-- Ajoutez d'autres informations de l'utilisateur ici avec des marges appropriées -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="text-center">
         <a href="{% url 'deconnexion'  %}">
             <button class="btn btn-danger">Logout</button>
         </a>

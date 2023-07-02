@@ -8,15 +8,6 @@ from babel.dates import format_time
 
 
 
-
-
-SALLES_CHOICES = (
-    ('IRAN1', 'IRAN1'),
-    ('IRAN2', 'IRAN2'),
-    ('FAKAMBI', 'FAKAMBI'),
-    # Ajoutez d'autres choix ici
-)
-
 JOUR_CHOICES = (
     ('lundi', 'Lundi'),
     ('mardi', 'Mardi'),
@@ -46,7 +37,7 @@ class Emploi(models.Model):
     professeur = models.CharField(
         max_length=50, default='prof1')
     quota_total = models.IntegerField(default=30)
-    quota_restante = models.IntegerField(default=30)
+    quota_restante = models.IntegerField(default=quota_total)
 
     def __str__(self):
         return self.cours
@@ -61,13 +52,13 @@ class NouveauEmploi_L1(models.Model):
     heure_fin = models.TimeField(verbose_name=_('Heure de fin'))
     duree_cours = models.IntegerField(default=0)
     actif = models.BooleanField(default=False)
-    salle = models.CharField(choices=SALLES_CHOICES,
-                             max_length=50, default='IRAN1')
+    salle = models.CharField(max_length=100, default='IRAN1')
+
     groupe = models.CharField(choices=GROUPES_CHOICES,
                               max_length=50, default='Groupe 1')
 
     def save(self, *args, **kwargs):
-        self.emploi.quota_restante = self.emploi.quota_total - self.duree_cours
+        self.emploi.quota_restante -= self.duree_cours
         self.emploi.save()
 
         super().save(*args, **kwargs)
@@ -93,7 +84,8 @@ class NouveauEmploi_L1(models.Model):
     class Meta:
         verbose_name = _('Nouvel emploi Licence 1')
         verbose_name_plural = _('Nouveaux emplois Licence 1')
-
+    def __str__(self):
+        return self.emploi.cours
 
 class NouveauEmploi_L2(models.Model):
     texte = models.CharField(max_length=1000, null=True)
@@ -104,13 +96,13 @@ class NouveauEmploi_L2(models.Model):
     heure_fin = models.TimeField(verbose_name=_('Heure de fin'))
     duree_cours = models.IntegerField(default=0)
     actif = models.BooleanField(default=False)
-    salle = models.CharField(choices=SALLES_CHOICES,
-                             max_length=50, default='IRAN1')
+    salle = models.CharField(max_length=100, default='IRAN1')
+
     groupe = models.CharField(choices=GROUPES_CHOICES,
                               max_length=50, default='Groupe 1')
 
     def save(self, *args, **kwargs):
-        self.emploi.quota_restante = self.emploi.quota_total - self.duree_cours
+        self.emploi.quota_restante -= self.duree_cours
         self.emploi.save()
 
         super().save(*args, **kwargs)
@@ -136,6 +128,8 @@ class NouveauEmploi_L2(models.Model):
     class Meta:
         verbose_name = _('Nouvel emploi Licence 2')
         verbose_name_plural = _('Nouveaux emplois Licence 2')
+    def __str__(self):
+        return self.emploi.cours
 
 
 class NouveauEmploi_L3(models.Model):
@@ -147,13 +141,12 @@ class NouveauEmploi_L3(models.Model):
     heure_fin = models.TimeField(verbose_name=_('Heure de fin'))
     duree_cours = models.IntegerField(default=0)
     actif = models.BooleanField(default=False)
-    salle = models.CharField(choices=SALLES_CHOICES,
-                             max_length=50, default='IRAN1')
+    salle = models.CharField(max_length=100, default='IRAN1')
     groupe = models.CharField(choices=GROUPES_CHOICES,
                               max_length=50, default='Groupe 1')
 
     def save(self, *args, **kwargs):
-        self.emploi.quota_restante = self.emploi.quota_total - self.duree_cours
+        self.emploi.quota_restante -= self.duree_cours
         self.emploi.save()
 
         super().save(*args, **kwargs)
@@ -180,6 +173,9 @@ class NouveauEmploi_L3(models.Model):
         verbose_name = _('Nouvel emploi Licence 3')
         verbose_name_plural = _('Nouveaux emplois Licence 3')
 
+    def __str__(self):
+        return self.emploi.cours
+
 
 class NouveauEmploi_M1(models.Model):
     texte = models.CharField(max_length=1000, null=True)
@@ -190,13 +186,13 @@ class NouveauEmploi_M1(models.Model):
     heure_fin = models.TimeField(verbose_name=_('Heure de fin'))
     duree_cours = models.IntegerField(default=0)
     actif = models.BooleanField(default=False)
-    salle = models.CharField(choices=SALLES_CHOICES,
-                             max_length=50, default='IRAN1')
+    salle = models.CharField(max_length=100, default='IRAN1')
+
     groupe = models.CharField(choices=GROUPES_CHOICES,
                               max_length=50, default='Groupe 1')
 
     def save(self, *args, **kwargs):
-        self.emploi.quota_restante = self.emploi.quota_total - self.duree_cours
+        self.emploi.quota_restante -= self.duree_cours
         self.emploi.save()
 
         super().save(*args, **kwargs)
@@ -222,6 +218,9 @@ class NouveauEmploi_M1(models.Model):
     class Meta:
         verbose_name = _('Nouvel emploi Master 1')
         verbose_name_plural = _('Nouveaux emplois Master 1')
+    
+    def __str__(self):
+        return self.emploi.cours
 
 
 class NouveauEmploi_M2(models.Model):
@@ -233,13 +232,13 @@ class NouveauEmploi_M2(models.Model):
     heure_fin = models.TimeField(verbose_name=_('Heure de fin'))
     duree_cours = models.IntegerField(default=0)
     actif = models.BooleanField(default=False)
-    salle = models.CharField(choices=SALLES_CHOICES,
-                             max_length=50, default='IRAN1')
+    salle = models.CharField(max_length=100, default='IRAN1')
+
     groupe = models.CharField(choices=GROUPES_CHOICES,
                               max_length=50, default='Groupe 1')
 
     def save(self, *args, **kwargs):
-        self.emploi.quota_restante = self.emploi.quota_total - self.duree_cours
+        self.emploi.quota_restante -= self.duree_cours
         self.emploi.save()
 
         super().save(*args, **kwargs)
@@ -247,7 +246,7 @@ class NouveauEmploi_M2(models.Model):
     def clean(self):
         if self.heure_debut >= self.heure_fin:
             raise ValidationError(
-                _("L'heure de début doit être antérieure à l'heure de fin."))
+                ("L'heure de début doit être antérieure à l'heure de fin."))
 
         heure_debut = make_aware(datetime.combine(
             date.today(), self.heure_debut))
@@ -265,4 +264,24 @@ class NouveauEmploi_M2(models.Model):
     class Meta:
         verbose_name = _('Nouvel emploi Master 2')
         verbose_name_plural = _('Nouveaux emplois Master 2')
+    
+    def __str__(self):
+        return self.emploi.cours
 
+
+class Historique(models.Model):
+    emploi_du_temps_L1 = models.ForeignKey(
+        NouveauEmploi_L1, null=True, on_delete=models.PROTECT)
+    emploi_du_temps_L2 = models.ForeignKey(
+        NouveauEmploi_L2, null=True, on_delete=models.PROTECT)
+    emploi_du_temps_L3 = models.ForeignKey(
+        NouveauEmploi_L3, null=True, on_delete=models.PROTECT)
+    emploi_du_temps_M1 = models.ForeignKey(
+        NouveauEmploi_M1, null=True, on_delete=models.PROTECT)
+    emploi_du_temps_M2 = models.ForeignKey(
+        NouveauEmploi_M2, null=True, on_delete=models.PROTECT)
+    date_modification = models.DateTimeField(auto_now_add=True)
+    Description = models.TextField(max_length=100, default='Historique du ')
+
+class Notification(models.Model):
+    texte_notification = models.CharField(max_length=1000, blank=True)
