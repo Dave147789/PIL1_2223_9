@@ -148,7 +148,7 @@ def dashboard(request):
     request.session['message_expiration'] = expiration_time_str
     message_expiration = request.session.get('message_expiration')
 
-    if message_expiration and datetime.now() < datetime.strptime(message_expiration, "%Y-%m-%d %H:%M:%S"):
+    if messages  and datetime.now() < datetime.strptime(message_expiration, "%Y-%m-%d %H:%M:%S"):
         show_message = True
     else:
         show_message = False
