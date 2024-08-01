@@ -66,7 +66,7 @@ class NouveauEmploi_L1(models.Model):
     def clean(self):
         if self.heure_debut >= self.heure_fin:
             raise ValidationError(
-                _("L'heure de début doit être antérieure à l'heure de fin."))
+                ("L'heure de début doit être antérieure à l'heure de fin."))
 
         heure_debut = make_aware(datetime.combine(
             date.today(), self.heure_debut))

@@ -74,13 +74,15 @@
                                 <form method="post" enctype="multipart/form-data">
                                     <fieldset>
                                         <div class="field">
-                                            <h2>Un e-mail a été envoyé à l'adresse associée à votre compte pour
-                                                réinitialiser votre mot de passe. Veuillez vérifier votre boîte de
+                                            <h4>Un e-mail a été envoyé à l'adresse associée à votre compte pour
+                                                réinitialiser votre mot de passe. </h4>
+                                                <p>Veuillez vérifier votre boîte de
                                                 réception et suivre les instructions fournies dans l'e-mail.
                                                 Assurez-vous également de vérifier votre dossier de courrier indésirable
-                                                au cas où l'e-mail aurait été filtré accidentellement.
+                                                au cas où l'e-mail aurait été filtré accidentellement. </p>
+                                                <br>
 
-                                                Si vous ne recevez pas l'e-mail dans les prochaines minutes, veuillez
+                                                <p class="fon">Si vous ne recevez pas l'e-mail dans les prochaines minutes, veuillez
                                                 vérifier que l'adresse e-mail associée à votre compte est correcte et
                                                 réessayez de demander la réinitialisation du mot de passe.
 
@@ -88,7 +90,7 @@
                                                 pas à nous contacter. Nous sommes là pour vous aider à résoudre tout
                                                 problème lié à votre compte.
 
-                                                Merci de votre compréhension et de votre collaboration.</h2>
+                                                Merci de votre compréhension et de votre collaboration.</p>
                                         </div>
                                         <div class="field center">
                                             <a href="{% url 'reset_password' %}"><button>Retour</button></a>

@@ -153,31 +153,29 @@ def dashboard(request):
     else:
         show_message = False
     cours_lundi = list(NouveauEmploi.objects.filter(
-        jour='lundi', actif=True).values())
+        jour='lundi', actif=True))
     cours_mardi = list(NouveauEmploi.objects.filter(
-        jour='mardi', actif=True).values())
+        jour='mardi', actif=True))
     cours_mercredi = list(NouveauEmploi.objects.filter(
-        jour='mercredi', actif=True).values())
+        jour='mercredi', actif=True))
     cours_jeudi = list(NouveauEmploi.objects.filter(
-        jour='jeudi', actif=True).values())
+        jour='jeudi', actif=True))
     cours_vendredi = list(NouveauEmploi.objects.filter(
-        jour='vendredi', actif=True).values())
+        jour='vendredi', actif=True))
     cours_samedi = list(NouveauEmploi.objects.filter(
-        jour='samedi', actif=True).values())
+        jour='samedi', actif=True))
     cours_dimanche = list(NouveauEmploi.objects.filter(
-        jour='dimanche', actif=True).values())
+        jour='dimanche', actif=True))
+    
+    jours=[cours_lundi,cours_mardi,cours_mercredi,cours_jeudi,cours_vendredi,cours_samedi,cours_dimanche,]
+    
 
     context = {
-        'lundi': cours_lundi,
-        'mardi': cours_mardi,
-        'mercredi': cours_mercredi,
-        'jeudi': cours_jeudi,
-        'vendredi': cours_vendredi,
-        'samedi': cours_samedi,
-        'dimanche': cours_dimanche,
+        'jours':jours,
         'groupe': groupe,
         'show_message': show_message,
-
+        'max_hours' : range(max(len(cours_lundi), len(cours_mardi), len(cours_mercredi), len(cours_jeudi), len(cours_vendredi), len(cours_samedi), len(cours_dimanche))),
+        'q':3
     }
 
     return render(request, 'dashboard.html', context)
